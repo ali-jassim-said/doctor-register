@@ -1,0 +1,676 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px white;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ffffffe3;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8888887d;
+}
+
+
+.register2 {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+
+.register-pic2 {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  position: sticky;
+    top: 0px;
+}
+.v-img__img--contain {
+  object-fit: fill;
+}
+
+.register-pic .img2 {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 24px;
+}
+
+.v-responsive {
+  height: 100%;
+}
+
+.register-form2 {
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 0px 0px 24px 0px;
+}
+
+.form2 {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-header2 {
+  width: 100%;
+    
+    padding: 24px 16px 0px 16px;
+
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+  
+    background-color: white;
+    z-index: 10;
+}
+
+.form-header2 .head {
+  width: 100%;
+  height: 56px;
+  padding: 16px 0px 16px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border: 0px 0px 2px 0px;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(225, 225, 225, 1);
+  transition: all 0.1s ease;
+}
+
+.form-header2 .head div {
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(179, 179, 179, 1);
+  gap: 8px;
+  border-radius: 40px;
+  background: rgba(238, 238, 238, 1);
+}
+
+.form-header2 .head p {
+  height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.16px;
+  text-align: left;
+  color: rgba(179, 179, 179, 1);
+}
+
+.form-header2 .head.active {
+  border-bottom: 2px solid rgba(16, 104, 255, 1);
+}
+
+.form-header2 .head.active div {
+  color: #fff;
+  background: rgba(16, 104, 255, 1);
+}
+
+.form-header2 .head.active p {
+  color: rgba(16, 104, 255, 1);
+}
+
+.info2 {
+  width: 100% !important;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.info2-all {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.info2-all .form1 {
+  padding: 0px 16px 0px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info2-all .form1 .profile {
+  height: 106px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info2-all .form1 .profile .head {
+  width: 88px;
+  height: 18px;
+  color: rgba(42, 42, 42, 1);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+}
+
+.info2-all .form1 .profile .content {
+  width: 323px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.info2-all .form1 .profile .content .pic {
+  width: 80px;
+  height: 80px;
+  background: rgba(217, 217, 217, 1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info2-all .form1 .profile .content .pic .icon-profile {
+  width: 32px;
+  height: 32px;
+  padding: 4px 5.33px 4px 5.33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info2-all .form1 .profile .content .pic .icon-profile i {
+  color: rgba(127, 127, 127, 1);
+  font-size: 35px;
+}
+
+.info2-all .form1 .profile .content .input {
+  width: 219px;
+  height: 67px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  box-shadow: none;
+}
+
+.info2-all .form1 .profile .content .input input {
+  width: 145px;
+  height: 36px;
+  padding: 10px 14px 10px 12px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px;
+}
+
+.file-cta {
+  padding: 10px 14px 10px 12px;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px;
+  background-color: rgba(248, 248, 248, 1);
+  border: 1px solid rgba(243, 243, 243, 1);
+}
+
+.block:not(:last-child),
+.box:not(:last-child),
+.breadcrumb:not(:last-child),
+.buttons:not(:last-child),
+.card:not(:last-child),
+.content:not(:last-child),
+.field:not(:last-child),
+.file:not(:last-child),
+.fixed-grid:not(:last-child),
+.grid:not(:last-child),
+.level:not(:last-child),
+.media:not(:last-child),
+.message:not(:last-child),
+.notification:not(:last-child),
+.pagination:not(:last-child),
+.progress:not(:last-child),
+.skeleton-block:not(:last-child),
+.subtitle:not(:last-child),
+.table-container:not(:last-child),
+.table:not(:last-child),
+.tabs:not(:last-child),
+.tags:not(:last-child),
+.title:not(:last-child) {
+  margin-bottom: 0px;
+}
+
+.file-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15.12px;
+  text-align: left;
+  color: rgba(16, 104, 255, 1);
+}
+
+.ri-add-line {
+  color: rgba(16, 104, 255, 1);
+}
+
+.info2-all .form1 .profile .content .input .message {
+  width: 219px;
+  height: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.info2-all .form1 .profile .content .input .message i {
+  color: rgba(128, 128, 128, 1);
+}
+
+.info2-all .form1 .profile .content .input .message span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15.12px;
+  text-align: left;
+  color: rgba(128, 128, 128, 1);
+}
+
+.info2-all .form-name {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  gap: 16px;
+}
+
+.info2-all .form-name form {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info2-all .form-name form label {
+  height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+  color: rgba(42, 42, 42, 1);
+}
+
+.info2-all .form-name form input {
+  width: 100%;
+  height: 48px;
+  padding: 8px 12px 8px 12px;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 234, 234, 1);
+  outline: none;
+}
+
+.info2-all .form-biography {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info2-all .form-biography label {
+  width: 70px;
+  height: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+  color: rgba(42, 42, 42, 1);
+}
+
+.info2-all .form-biography textarea {
+  width: 100%;
+  height: 228px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 8px;
+  border: 1px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 234, 234, 1);
+  outline: none;
+}
+
+.date-country {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.date-country .date {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-country .date label {
+  width: 84px;
+  height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+  color: rgba(42, 42, 42, 1);
+}
+
+.dp__input {
+  width: 100%;
+  height: 48px;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 234, 234, 1);
+}
+
+ .country {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.date-country .country label {
+  width: 55px;
+  height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+  color: rgba(42, 42, 42, 1);
+}
+
+.v-input__control {
+  display: flex;
+
+  width: 100%;
+  height: 48px;
+  padding: 8px 12px 8px 12px;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px;
+  opacity: 0px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(234, 234, 234, 1);
+}
+
+.v-input--density-default {
+  --v-input-control-height: 56px;
+  --v-input-padding-top: 0px;
+}
+
+.v-field--variant-filled .v-field__overlay {
+  background-color: transparent;
+  opacity: 0.04;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: none !important;
+}
+
+.v-field {
+  display: grid;
+  grid-template-areas: "prepend-inner field clear append-inner";
+  grid-template-columns: min-content minmax(0, 1fr) min-content min-content;
+  font-size: 16px;
+  letter-spacing: 0.009375em;
+  max-width: 100%;
+  border-radius: 4px;
+  contain: layout;
+  flex: 1 0;
+  grid-area: control;
+  position: relative;
+  --v-field-padding-start: 16px;
+  --v-field-padding-end: 16px;
+  --v-field-padding-top: 8px;
+  --v-field-padding-bottom: 4px;
+  -v-field-input-padding-top: calc(var(0, 0px) + var(0, 0));
+  --v-field-input-padding-bottom: none;
+  border: none !important;
+}
+
+.v-field--variant-filled .v-field__overlay {
+  background-color: transparent;
+  border: none !important;
+  opacity: 0.04;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v-input--density-default {
+  /* --v-input-control-height: 56px; */
+  /* --v-input-padding-top: 0px; */
+  width: 100%;
+  border: none;
+}
+
+.v-field__outline {
+  display: none;
+}
+
+.gender-cash {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.gender-cash .gender {
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0px;
+}
+
+.gender-cash .gender label {
+  width: 52px;
+  height: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.64px;
+  text-align: left;
+  color: rgba(42, 42, 42, 1);
+}
+
+.gender-cash .gender .all-gender {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+
+.gender-cash .gender .all-gender .male {
+  width: 100%;
+height: 48px;
+padding: 12px 16px 12px 16px;
+display: flex;
+align-items: center;
+gap: 10px;
+border-radius: 8px;
+border: 1px;
+border: 1px solid  rgba(234, 234, 234, 1);
+cursor: pointer;
+}
+
+.gender-cash .gender .all-gender .male label {
+font-size: 14px;
+font-weight: 500;
+line-height: 17.64px;
+text-align: left;
+color: rgba(42, 42, 42, 1);
+cursor: pointer;
+padding: 23px 50px 23px 32px;
+display: flex;
+align-items: center;
+justify-content: end;
+}
+
+.gender-cash .gender .all-gender .male input {
+    cursor: pointer;
+    }
+
+
+
+.gender-cash .gender .all-gender .female {
+  width: 100%;
+height: 48px;
+padding: 12px 16px 12px 16px;
+display: flex;
+align-items: center;
+gap: 10px;
+border-radius: 8px;
+border: 1px;
+border: 1px solid  rgba(234, 234, 234, 1);
+cursor: pointer;
+}
+
+
+.gender-cash .gender .all-gender .female label {
+font-size: 14px;
+font-weight: 500;
+line-height: 17.64px;
+text-align: start;
+color: rgba(42, 42, 42, 1);
+cursor: pointer;
+padding: 23px 50px;
+display: flex;
+align-items: center;
+justify-content: end;
+
+}
+
+
+.gender-cash .gender .all-gender .female input {
+    cursor: pointer;
+    }
+
+
+
+.gender-cash .cash{
+  width:100%;
+height: 74px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+
+}
+
+
+.gender-cash .cash label{
+  width: 181px;
+height: 18px;
+font-size: 14px;
+font-weight: 500;
+line-height: 17.64px;
+text-align: left;
+color: rgba(42, 42, 42, 1);
+
+
+}
+
+
+
+.gender-cash .cash input{
+  width: 100%;
+height: 48px;
+padding: 8px 12px 8px 12px;
+gap: 4px;
+border-radius: 8px;
+border: 1px;
+background: rgba(255, 255, 255, 1);
+border: 1px solid rgba(234, 234, 234, 1);
+outline: none;
+}
+
+
+.next-back{
+  width: 100%;
+height:82px;
+padding: 16px;
+border: 1px;
+display: flex;
+    align-items: center;
+    justify-content: end;
+
+}
+
+.next-back .buttons{
+height:50px;
+display: flex;
+align-items: center;
+gap: 12px;
+
+}
+
+
+.next-back .buttons .back{
+  width: 98px;
+height: 50px;
+padding: 16px 32px 16px 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+border-radius: 8px;
+border: 1px;
+background: rgba(248, 248, 248, 1);
+border: 1px solid rgba(243, 243, 243, 1);
+font-size: 14px;
+font-weight: 500;
+line-height: 17.64px;
+text-align: left;
+color: rgba(153, 153, 153, 1);
+
+}
+
+.next-back .buttons .next{
+  width: 98px;
+height: 50px;
+padding: 16px 32px 16px 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+border-radius: 8px;
+border: 1px;
+background: rgba(16, 104, 255, 1);
+font-size: 14px;
+font-weight: 500;
+line-height: 17.64px;
+text-align: left;
+color: rgba(255, 255, 255, 1);
+
+
+}

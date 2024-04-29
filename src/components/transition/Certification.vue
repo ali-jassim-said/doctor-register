@@ -122,6 +122,7 @@ export default {
 
 .sent-cert .sent-head i {
   color: rgba(17, 17, 17, 1);
+  cursor: pointer;
 }
 
 .sent-cert .sent-content {

@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+
+.v-col {
+  /* flex-basis: 0; */
+  flex-grow: 1;
+  max-width: 100%;
+}
+
 .register {
   padding: 0;
   margin: 0;
@@ -18,9 +25,14 @@
   width: 100%;
   height: 100vh;
   padding: 20px;
+  position: relative;
 }
 .v-img__img--contain {
-  object-fit: fill;
+  object-fit: cover;
+}
+
+.cover{
+  object-fit: cover !important;
 }
 
 .register-pic .img {
@@ -310,7 +322,7 @@
 /*======================================== email-register ====================================*/
 
 .input-email {
-    width: 448px;
+    width: 100%;
     height: 73px;
     gap: 8px;
     margin: 10px 0px;
@@ -327,7 +339,7 @@
   }
   
   .type-text {
-    width: 448px;
+    width: 100%;
     height: 48px;
     padding: 4px 16px 4px 16px;
     gap: 12px;
@@ -388,7 +400,7 @@
  
     gap: 8px;
 
-    width: 448px;
+    width: 100%;
     
     gap: 8px;
     opacity: 0px;
@@ -436,7 +448,7 @@ text-align: left;
 
 
 .selected-option {
-
+  width: 100% ;
     border-radius: 8px;
     overflow: hidden;
 

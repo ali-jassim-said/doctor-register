@@ -11,6 +11,7 @@
     "@mdi/font": "5.9.55",
     "@vuepic/vue-datepicker": "^8.5.0",
     "core-js": "^3.8.3",
+    "cropperjs": "^1.6.2",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

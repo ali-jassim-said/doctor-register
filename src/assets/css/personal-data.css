@@ -78,6 +78,7 @@
 }
 
 .form-header2 .head {
+  position: relative;
   width: 100%;
   height: 56px;
   padding: 16px 0px 16px 0px;
@@ -88,8 +89,40 @@
   border: 0px 0px 2px 0px;
   cursor: pointer;
   border-bottom: 2px solid rgba(225, 225, 225, 1);
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
+
+
+.form-header2 span{
+  position: absolute ;
+  bottom: 0;
+  left: 10px;
+  width: 25%;
+  height: 3px;
+  background-color: rgba(16, 104, 255, 1);
+  transition: all .2s ease;
+}
+
+
+
+.form-header2 .head:nth-child(1).active~span {
+  left: 10;
+}
+
+.form-header2 .head:nth-child(2).active~span {
+  left: 25%;
+}
+
+
+.form-header2 .head:nth-child(3).active~span {
+  left: 50%;
+}
+
+.form-header2 .head:nth-child(4).active~span {
+  left: 74%;
+}
+
+
 
 .form-header2 .head div {
   width: 24px;
@@ -113,9 +146,7 @@
   color: rgba(179, 179, 179, 1);
 }
 
-.form-header2 .head.active {
-  border-bottom: 2px solid rgba(16, 104, 255, 1);
-}
+
 
 .form-header2 .head.active div {
   color: #fff;

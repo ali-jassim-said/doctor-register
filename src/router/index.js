@@ -15,6 +15,11 @@ const routes = [
     path: '/successReg',
     name: 'successReg',
     component: () => import('../views/successReg.vue')
+  },
+  {
+    path: '/regMobile',
+    name: 'regMobile',
+    component: () => import('../views/regMobile.vue')
   }
 ]
 

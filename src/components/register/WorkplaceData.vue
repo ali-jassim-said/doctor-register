@@ -1,6 +1,6 @@
 <template>
  
-    <div class="form-name">
+    <div class="form-name" :class="{mopWorkPlace: isSmAndDown}">
       <form>
         <label>Workplace</label>
         <input placeholder="Enter your workplace" type="text" />
@@ -38,16 +38,47 @@
  
   <v-row style="height: 295px; display: flex; align-items: end; margin-top: 50px;">
     <div class="next-back">
-      <div class="buttons">
-        <button class="back">Back</button>
-        <button class="next">Next</button>
+      <div class="buttons" :class="{mopNextWidth: isSmAndDown}">
+        <button class="back" v-if="!isSmAndDown">Back</button>
+        <button class="next" :class="{mopNextWidth: isSmAndDown}">Next</button>
       </div>
     </div>
   </v-row>
 </template>
 
-<script>
-export default {};
+<script setup>
+
+import { ref ,onMounted , onUnmounted, computed } from "vue";
+
+
+
+
+
+
+
+// Create a ref to store the window width
+const windowWidth = ref(window.innerWidth);
+
+// Update the window width ref when the window is resized
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Listen for window resize events
+onMounted(() => {
+  window.addEventListener('resize', updateWindowWidth);
+});
+
+// Remove the resize event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth);
+});
+
+// Compute if the screen is small and below
+const isSmAndDown = computed(() => {
+  return windowWidth.value <= 600; // Adjust the value as needed
+});
+
 </script>
 
 <style>
@@ -97,5 +128,19 @@ export default {};
 .Specialization button i {
   color: rgba(191, 191, 191, 1);
   cursor: pointer;
+}
+
+
+
+
+.mopWorkPlace{
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.mopNextWidth{
+  border-radius: 48px !important;
+  width: 100% !important;
+  Padding: 8px 24px 8px 24px;
 }
 </style>

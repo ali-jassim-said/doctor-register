@@ -2,15 +2,30 @@
   <div class="profile">
     <div class="head">Profile Image</div>
     <div class="content">
-      <div class="pic">
-        <div class="icon-profile">
-          <i class="ri-user-3-line"></i>
+      <div class="pic" v-if="!isSmAndDown">
+        <div
+          class="icon-profile"
+          ref="profileIcon"
+          :class="{ imgUp: !!imageUrl }"
+        >
+          <i class="ri-user-3-line" v-show="!imageUrl"></i>
+          <img
+            v-show="!!imageUrl"
+            :src="imageUrl"
+            alt="Profile Image"
+            style="width: 80px; height: 80px; border-radius: 50%"
+          />
         </div>
       </div>
-      <div class="input">
+      <div class="input" :class="{mobPadding: isSmAndDown}">
         <div class="file">
           <label class="file-label">
-            <input class="file-input" type="file" name="resume" />
+            <input
+              class="file-input"
+              type="file"
+              name="resume"
+              @change="handleFileChange"
+            />
             <span class="file-cta">
               <span class="file-icon">
                 <i class="ri-add-line"></i>
@@ -20,7 +35,7 @@
           </label>
         </div>
 
-        <p class="message">
+        <p class="message" v-if="!isSmAndDown">
           <i class="ri-error-warning-line"></i>
           <span>Add profile Image. max size is 2MB</span>
         </p>
@@ -37,7 +52,7 @@
     <label>Biography</label>
     <textarea placeholder="Auahgelap"></textarea>
   </div>
-  <div class="date-country">
+  <div class="date-country" :class="{mobCountry: isSmAndDown}">
     <div class="date">
       <label>Date of Birth</label>
       <Datepicker v-model="date" />
@@ -56,7 +71,7 @@
       ></v-select>
     </div>
   </div>
-  <div class="date-country">
+  <div class="date-country" :class="{mobCountry: isSmAndDown}">
     <div class="country">
       <label>City</label>
       <v-select
@@ -84,7 +99,7 @@
       ></v-select>
     </div>
   </div>
-  <div class="gender-cash">
+  <div class="gender-cash" :class="{mobCountry: isSmAndDown}">
     <div class="gender">
       <label> Gender </label>
 
@@ -105,22 +120,83 @@
     </div>
   </div>
   <div class="next-back">
-    <div class="buttons">
-      <button class="back">Back</button>
-      <button class="next">Next</button>
+    <div class="buttons" :class="{mopNextWidth: isSmAndDown}">
+      <button class="back" v-if="!isSmAndDown">Back</button>
+      <button class="next" :class="{mopNextWidth: isSmAndDown}">Next</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref ,onMounted , onUnmounted, computed } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
 const date = ref();
+const imageUrl = ref(""); // Image URL
+
+function handleFileChange(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageUrl.value = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    imageUrl.value = ""; // Reset image URL when no file is selected
+  }
+}
+
+
+
+
+
+// Create a ref to store the window width
+const windowWidth = ref(window.innerWidth);
+
+// Update the window width ref when the window is resized
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Listen for window resize events
+onMounted(() => {
+  window.addEventListener('resize', updateWindowWidth);
+});
+
+// Remove the resize event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth);
+});
+
+// Compute if the screen is small and below
+const isSmAndDown = computed(() => {
+  return windowWidth.value <= 600; // Adjust the value as needed
+});
+
+
 </script>
 
 <style>
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
 @import url("../../assets/css/personal-data.css");
+
+.imgUp {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+}
+
+
+.mobPadding{
+  padding: 0 !important;
+}
+
+
+.mobCountry{
+  flex-direction: column !important;
+  height: 100% !important;
+}
 </style>

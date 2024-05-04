@@ -1,9 +1,16 @@
 <template>
   <v-row class="register">
-    <v-col class="register-pic">
+    <v-col
+      lg="4"
+      md="12"
+      sm="12"
+      xs="12"
+      class="register-pic"
+      v-if="!isSmAndDown"
+    >
       <v-img class="img" src="../assets/reg.svg"></v-img>
     </v-col>
-    <v-col class="register-success">
+    <v-col lg="4" md="12" sm="12" xs="12" class="register-success">
       <div class="success">
         <img src="../assets/img/success.png" alt="" />
         <div class="success-content">
@@ -16,7 +23,32 @@
   </v-row>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted, computed } from "vue";
+
+// Create a ref to store the window width
+const windowWidth = ref(window.innerWidth);
+
+// Update the window width ref when the window is resized
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Listen for window resize events
+onMounted(() => {
+  window.addEventListener("resize", updateWindowWidth);
+});
+
+// Remove the resize event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener("resize", updateWindowWidth);
+});
+
+// Compute if the screen is small and below
+const isSmAndDown = computed(() => {
+  return windowWidth.value <= 600; // Adjust the value as needed
+});
+</script>
 
 <style>
 @import url("../assets/css/register.css");
@@ -42,7 +74,7 @@
 
 .success img {
   width: 145px;
-height: 125px;
+  height: 125px;
 }
 
 .register-success .success .success-content {

@@ -54,11 +54,13 @@
                 I agree to the <span class="span">Terms & Privacy</span>
               </div>
             </div>
-            <router-link :to="{ name: 'regTow' }">
+           
+          </div>
+      
+        </div>
+        <router-link :to="{ name: 'regTow' }">
               <button type="button" class="btn">Login</button>
             </router-link>
-          </div>
-        </div>
       </div>
     </v-col>
   </v-row>

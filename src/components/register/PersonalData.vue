@@ -121,14 +121,14 @@
   </div>
   <div class="next-back">
     <div class="buttons" :class="{mopNextWidth: isSmAndDown}">
-      <button class="back" v-if="!isSmAndDown">Back</button>
-      <button class="next" :class="{mopNextWidth: isSmAndDown}">Next</button>
+      <router-link :to="{ name: 'regOne'}"><button class="back" v-if="!isSmAndDown">Back</button></router-link>
+      <button class="next" :class="{mopNextWidth: isSmAndDown}" @click="handleNext">Next</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref ,onMounted , onUnmounted, computed } from "vue";
+import { ref ,onMounted , onUnmounted, computed, defineEmits  } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
@@ -147,6 +147,16 @@ function handleFileChange(event) {
     imageUrl.value = ""; // Reset image URL when no file is selected
   }
 }
+
+
+const emits = defineEmits(['next']);
+
+const handleNext = () => {
+  // Emit a custom event to notify the parent component that the "Next" button was clicked
+  emits('next');
+};
+
+
 
 
 

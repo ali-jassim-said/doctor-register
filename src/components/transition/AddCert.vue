@@ -1,10 +1,10 @@
 <template>
-    <div class="addCert">
-        <div class="close-cert">
-            <i class="ri-close-circle-fill"></i>
-        </div>
-   <div class="certification">
-      <div class="form-name">
+  <div class="addCert">
+    <div class="close-cert">
+      <i class="ri-close-circle-fill"></i>
+    </div>
+    <div class="certification">
+      <div class="form-name" :class="{mopAddCert: isSmAndDown}">
         <form>
           <label class="national-color">Certification Title</label>
           <input
@@ -23,7 +23,7 @@
         </form>
       </div>
 
-      <div class="form-name">
+      <div class="form-name" :class="{mopAddCert: isSmAndDown}">
         <form>
           <label class="national-color">Graduation Years</label>
           <div class="cert">
@@ -61,7 +61,9 @@
             <span>Add Certificatire Image. max size is 16MB</span>
           </p>
           <div class="up-but">
-            <button class="sub" @click="toggleCertification">Submit Certificate</button>
+            <button class="sub" @click="toggleCertification">
+              Submit Certificate
+            </button>
             <div class="icon" @click="togglePDF">
               <i class="ri-upload-cloud-fill"></i>
             </div>
@@ -69,42 +71,64 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
-<script>
-export default {
-   
-}
+<script setup>
+import { ref ,onMounted , onUnmounted, computed } from "vue";
+
+
+  // Create a ref to store the window width
+const windowWidth = ref(window.innerWidth);
+
+// Update the window width ref when the window is resized
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Listen for window resize events
+onMounted(() => {
+  window.addEventListener('resize', updateWindowWidth);
+});
+
+// Remove the resize event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth);
+});
+
+// Compute if the screen is small and below
+const isSmAndDown = computed(() => {
+  return windowWidth.value <= 600; // Adjust the value as needed
+});
+
 </script>
 
 <style>
-    .addCert{
-        width: 100%;
-        height: 324px;
-padding: 16px;
-display: flex;
-flex-direction: column;
-gap: 16px;
-border-radius: 16px;
-border: 1px;
-background: rgba(255, 255, 255, 1);
-border: 1px solid var(--Secondary-10, rgba(234, 234, 234, 1));
-margin-bottom: 60px;
-    }
+.addCert {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 16px;
+  border: 1px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid var(--Secondary-10, rgba(234, 234, 234, 1));
+  margin-bottom: 60px;
+}
 
+.close-cert {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
 
-    .close-cert{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-    }
+.close-cert i {
+  color: rgba(191, 191, 191, 1);
+}
 
-    .close-cert i{
-        color: rgba(191, 191, 191, 1);
-
-    }
-
-    
+.mopAddCert{
+  flex-direction: column;
+}
 </style>

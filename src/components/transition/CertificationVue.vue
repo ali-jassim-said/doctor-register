@@ -19,7 +19,7 @@
         <h2>2020 - 2023</h2>
       </div>
     </div>
-    <div class="sentPDF">
+    <div class="sentPDF" v-if="!isSmAndDown">
       <div class="national-pdf cert-pdf">
         <div class="content">
           <div class="icon-pdf"><i class="ri-file-pdf-2-fill"></i></div>
@@ -53,29 +53,55 @@
   <div v-if="!showAddCert1" style="height: 230px;"></div>
 </template>
 
-<script>
+<script setup>
+import { ref ,onMounted , onUnmounted, computed, defineEmits } from "vue";
 import AddCert from './AddCert.vue';
-export default {
-  components: { AddCert },
-  name: "CertificationVue",
-  data() {
-    return {
-      showAddCert1: false 
-    };
-  },
-  methods: {
-    showAddCert() {
-      this.showAddCert1 = !this.showAddCert1;
-      this.$emit('nextHeight');
-    },
-  }
+
+const emits = defineEmits(['nextHeight']);
+
+const showAddCert1 = ref(false);
+
+const showAddCert = () => {
+  showAddCert1.value = !showAddCert1.value;
+  emits('nextHeight');
 };
+
+
+
+
+
+
+// Create a ref to store the window width
+const windowWidth = ref(window.innerWidth);
+
+// Update the window width ref when the window is resized
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Listen for window resize events
+onMounted(() => {
+  window.addEventListener('resize', updateWindowWidth);
+});
+
+// Remove the resize event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth);
+});
+
+// Compute if the screen is small and below
+const isSmAndDown = computed(() => {
+  return windowWidth.value <= 600; // Adjust the value as needed
+});
+
+
+
 </script>
+
 
 <style>
 .sent-cert {
   width: 100%;
-  height: 188px;
   padding: 10px;
   position: relative;
   display: flex;
@@ -103,7 +129,7 @@ export default {
 
 .sent-cert .sent-head {
   width: 100%;
-  height: 22px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,7 +138,7 @@ export default {
 
 .sent-cert .sent-head h2 {
   width: 100%;
-  height: 22px;
+
   font-size: 16px;
   font-weight: 500;
   line-height: 22.4px;
@@ -127,7 +153,7 @@ export default {
 
 .sent-cert .sent-content {
   width: 323px;
-  height: 66px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -136,7 +162,7 @@ export default {
 
 .sent-cert .sent-content .cont {
   width: 323px;
-  height: 18px;
+ 
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -145,7 +171,7 @@ export default {
 
 .sent-cert .sent-content .cont h2 {
   width: 305px;
-  height: 18px;
+
   font-size: 14px;
   font-weight: 500;
   line-height: 17.64px;
@@ -159,7 +185,7 @@ export default {
 
 .sent-cert .sentPDF {
   width: 283px;
-  height: 48px;
+ 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,7 +194,7 @@ export default {
 
 .sentPDF .cert-pdf {
   width: 138px;
-  height: 48px;
+
   padding: 8px;
   display: flex;
   flex-direction: row;

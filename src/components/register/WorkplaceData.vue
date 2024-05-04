@@ -1,5 +1,5 @@
 <template>
- 
+ <div class="work-flex">
     <div class="form-name" :class="{mopWorkPlace: isSmAndDown}">
       <form>
         <label>Workplace</label>
@@ -35,22 +35,35 @@
         <button><span>Opthalmology</span> <i class="ri-close-line"></i></button>
       </div>
     </div>
- 
-  <v-row style="height: 295px; display: flex; align-items: end; margin-top: 50px;">
+  </div>
+  <div>
     <div class="next-back">
       <div class="buttons" :class="{mopNextWidth: isSmAndDown}">
-        <button class="back" v-if="!isSmAndDown">Back</button>
-        <button class="next" :class="{mopNextWidth: isSmAndDown}">Next</button>
+        <button class="back" v-if="!isSmAndDown" @click="handleBack">Back</button>
+        <button class="next" :class="{mopNextWidth: isSmAndDown}" @click="handleNext">Next</button>
       </div>
     </div>
-  </v-row>
+  </div>
+
 </template>
 
 <script setup>
 
-import { ref ,onMounted , onUnmounted, computed } from "vue";
+import { ref ,onMounted , onUnmounted, computed, defineEmits } from "vue";
 
 
+
+const emits = defineEmits(['next', 'back']);
+
+const handleNext = () => {
+  // Emit a custom event to notify the parent component that the "Next" button was clicked
+  emits('next');
+};
+
+const handleBack = () => {
+  // Emit a custom event to notify the parent component that the "Next" button was clicked
+  emits('back');
+};
 
 
 
@@ -135,12 +148,21 @@ const isSmAndDown = computed(() => {
 
 .mopWorkPlace{
   flex-direction: column !important;
-  height: 100% !important;
+  height: 160px !important;
 }
 
 .mopNextWidth{
   border-radius: 48px !important;
   width: 100% !important;
   Padding: 8px 24px 8px 24px;
+  margin-bottom: 33px;
+}
+
+
+.work-flex{
+  display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 16px;
 }
 </style>

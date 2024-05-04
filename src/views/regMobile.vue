@@ -90,7 +90,8 @@ watch(otpValue, validateOTP);
 @import url("../assets/css/register.css");
 
 .justify {
-  justify-content: space-around !important;
+  justify-content: space-between !important;
+    padding: 33px 0px;
   align-items: center !important;
   flex-direction: column;
 }
